@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>买球网 · 站点介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f2f4f6;
+      color: #1e2a3a;
+      line-height: 1.7;
+      padding: 2rem 1.5rem;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      background: transparent;
+    }
+
+    /* 杂志专题式 header */
+    .hero {
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.02);
+      padding: 3.5rem 2.5rem 3rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(200, 210, 220, 0.25);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(70, 130, 180, 0.06) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #0f1c2d;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero .subhead {
+      font-size: 1.05rem;
+      color: #4a5b6f;
+      max-width: 650px;
+      background: #f8fafc;
+      padding: 0.6rem 1.2rem;
+      border-radius: 40px;
+      display: inline-block;
+      border: 1px solid #e6ecf0;
+      margin-top: 0.4rem;
+    }
+
+    .hero p {
+      margin-top: 1.8rem;
+      max-width: 780px;
+      color: #2b3d52;
+    }
+
+    /* 卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.8rem;
+      margin-bottom: 2.5rem;
+    }
+
+    @media (min-width: 680px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 960px) {
+      .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.8rem 1.8rem 2rem;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02), 0 6px 18px rgba(0, 0, 0, 0.02);
+      border: 1px solid #e8edf2;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .card:hover {
+      border-color: #cfd9e2;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #142433;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+
+    .card p {
+      color: #31475e;
+      font-size: 0.98rem;
+    }
+
+    .card .icon-marker {
+      display: inline-block;
+      background: #eef3f8;
+      border-radius: 40px;
+      padding: 0.1rem 0.75rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: #1f4a6b;
+      margin-bottom: 0.6rem;
+      border: 1px solid #dce4eb;
+    }
+
+    /* 背景说明（长卡片） */
+    .feature-block {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2.2rem 2.5rem 2.5rem;
+      margin-bottom: 2.5rem;
+      border: 1px solid #e3e9ef;
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.02);
+    }
+
+    .feature-block h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #0f1c2d;
+      margin-bottom: 1.2rem;
+    }
+
+    .feature-block p {
+      margin-bottom: 1rem;
+      color: #2e445c;
+    }
+
+    .feature-block a {
+      color: #1f5e8f;
+      text-decoration: none;
+      border-bottom: 1px solid #bdd1e2;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .feature-block a:hover {
+      color: #0b3452;
+      border-bottom-color: #7b9cbb;
+    }
+
+    .inline-link {
+      color: #1f5e8f;
+      border-bottom: 1px solid #bdd1e2;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .inline-link:hover {
+      color: #0a3352;
+      border-bottom-color: #7b9cbb;
+    }
+
+    /* faq 摘要 */
+    .faq-mini {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2rem 2.2rem 2.2rem;
+      border: 1px solid #e3e9ef;
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.02);
+      margin-bottom: 2.5rem;
+    }
+
+    .faq-mini .q-item {
+      border-bottom: 1px solid #edf1f5;
+      padding-bottom: 0.9rem;
+    }
+
+    .faq-mini .q-item:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .faq-mini .question {
+      font-weight: 600;
+      color: #132435;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .faq-mini .answer {
+      color: #3e566d;
+      font-size: 0.95rem;
+    }
+
+    .faq-mini .answer a {
+      color: #1f5e8f;
+      border-bottom: 1px solid #bfd3e5;
+      text-decoration: none;
+    }
+
+    .faq-mini .answer a:hover {
+      border-bottom-color: #6d8faf;
+    }
+
+    /* 页尾提示 */
+    .footer-note {
+      text-align: center;
+      padding: 1.8rem 1rem 1.5rem;
+      color: #4c627a;
+      font-size: 0.9rem;
+      border-top: 1px solid #dce2e9;
+      margin-top: 0.5rem;
+      background: transparent;
+    }
+
+    .footer-note a {
+      color: #1e4d74;
+      text-decoration: none;
+      border-bottom: 1px solid #b7cbd9;
+    }
+
+    .footer-note a:hover {
+      border-bottom-color: #6789a8;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #dee5ec;
+      margin: 0.6rem 0;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e9eef4;
+      padding: 0.15rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      color: #1a3b56;
+      border: 1px solid #d3dde7;
+    }
+
+    @media (max-width: 500px) {
+      .hero {
+        padding: 2rem 1.4rem;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .feature-block {
+        padding: 1.6rem 1.4rem;
+      }
+      .faq-mini {
+        padding: 1.6rem 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- hero 横幅 / 杂志专题式 -->
+    <div class="hero">
+      <h1>买球网 · 专题介绍</h1>
+      <span class="subhead">关于站点的背景、定位与使用场景</span>
+      <p>
+        在日常信息检索与特定内容浏览中，用户经常需要一个方向清晰、内容集中的说明页。
+        <a href="https://on-maiqiuweb.com" class="inline-link">买球网</a> 正是围绕这一需求搭建的索引与信息聚合平台。
+        本页以专题形式整理其背景、功能特点与常见问题摘要，便于快速理解。
+      </p>
+    </div>
+
+    <!-- 三段自然介绍（卡片区域） -->
+    <div class="card-grid">
+      <div class="card">
+        <span class="icon-marker">📌 定位</span>
+        <h3>信息索引与导航</h3>
+        <p>
+          网站主要提供分类明晰的链接集合与主题目录，帮助用户更有效率地查找感兴趣的内容。
+          不必在多个入口之间反复跳转，通过一个集中式的列表即可浏览不同板块。
+        </p>
+      </div>
+      <div class="card">
+        <span class="icon-marker">🔍 场景</span>
+        <h3>日常浏览与参考</h3>
+        <p>
+          无论是关注行业动态、收集资料，还是单纯想了解某一领域的常见信息源，
+          <a href="https://on-maiqiuweb.com" class="inline-link">买球网</a> 都可以作为出发点。
+          页面结构偏向实用，不包含复杂交互，适合快速查阅。
+        </p>
+      </div>
+      <div class="card">
+        <span class="icon-marker">🧩 特点</span>
+        <h3>简洁与可访问性</h3>
+        <p>
+          界面采用轻量设计，内容层级清楚，减少无关干扰。网站不依赖第三方脚本或复杂样式，
+          在多数设备上都能正常渲染，让浏览回归信息本身。
+        </p>
+      </div>
+    </div>
+
+    <!-- 背景说明（长内容） -->
+    <div class="feature-block">
+      <h2>站点背景与可信说明</h2>
+      <p>
+        <strong>买球网</strong> 并非商业门户或收费平台，而是一个以内容聚合和链接整理为核心的静态信息站。
+        其内容由维护者根据公开来源筛选、归类，并持续更新链接的有效性。
+        站点不存储用户数据，不设置会员体系，也不植入第三方跟踪脚本——这一点在同类索引型网站中相对少见。
+      </p>
+      <p>
+        在可信度方面，站内所有外部链接均指向公开、合法的信息页面。
+        由于站点本身不生产新闻或数据，而是扮演“指路牌”的角色，因此信息源的真实性由原页面负责。
+        用户可通过网站提供的分类索引，自行判断和选择想要深入了解的站点。
+      </p>
+      <p>
+        如果你正在寻找一个结构清晰、没有复杂注册流程的主题导航页，
+        可以试试将 <a href="https://on-maiqiuweb.com">买球网</a> 加入书签。
+        它适合作为信息检索的起点，尤其当你希望减少广告和推荐算法干扰时。
+      </p>
+    </div>
+
+    <!-- FAQ 摘要（不套用常见问题格式，变化节奏） -->
+    <div class="faq-mini">
+      <div class="q-item">
+        <div class="question">▸ 网站主要包含哪些内容分类？</div>
+        <div class="answer">
+          分类覆盖资讯、工具、社区索引、常用参考等方向，具体条目以链接卡片和目录形式呈现。
+          每个分类下有简要说明，帮助判断是否与你的需求匹配。
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="question">▸ 链接失效或内容过时怎么办？</div>
+        <div class="answer">
+          维护者会定期检查链接状态，但鉴于网络环境变化，可能存在部分链接失效的情况。
+          如果你发现打不开的页面，可以通过网站底部（若可用）的反馈渠道告知。
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="question">▸ 是否需要注册或下载任何程序？</div>
+        <div class="answer">
+          完全不需要。站点为纯静态页面，没有登录、注册、下载等模块。
+          直接通过浏览器打开 <a href="https://on-maiqiuweb.com">买球网</a> 即可使用全部功能。
+        </div>
+      </div>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="footer-note">
+      <span class="tag">信息索引</span> &nbsp;·&nbsp; 
+      本专题页面仅作介绍用途，网站实际内容以 <a href="https://on-maiqiuweb.com">买球网</a> 为准。
+      <br>
+      <span style="opacity: 0.55; font-size:0.8rem;">—— 简洁 · 分类 · 可参考 ——</span>
+    </div>
+
+  </div>
+</body>
+</html>
