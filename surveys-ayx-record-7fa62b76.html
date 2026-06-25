@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ayx · 日常查询与对照专辑</title>
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+            background: #f4f2ed;
+            color: #1e1e1c;
+            line-height: 1.65;
+        }
+        .hero {
+            background: #1a1c23;
+            background-image: radial-gradient(circle at 25% 40%, #3b3f4a 0%, #101117 80%);
+            color: #ecebe7;
+            padding: 4rem 2rem 3.5rem;
+            text-align: center;
+            position: relative;
+            box-shadow: inset 0 -6px 12px rgba(0,0,0,0.3);
+        }
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            text-transform: lowercase;
+            border-bottom: 2px solid #c9a76b;
+            display: inline-block;
+            padding-bottom: 0.4rem;
+            margin-bottom: 1rem;
+        }
+        .hero .sub {
+            font-size: 1.2rem;
+            color: #b7b3aa;
+            max-width: 600px;
+            margin: 0.5rem auto 0;
+            font-style: italic;
+            opacity: 0.8;
+        }
+        .hero .sub span {
+            background: #2b2e38;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-style: normal;
+            font-size: 0.9rem;
+            color: #d6cbb6;
+        }
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 2.8rem 1.8rem 3.5rem;
+        }
+        .intro-block {
+            background: #ffffffef;
+            backdrop-filter: blur(2px);
+            padding: 2.4rem 2.2rem;
+            border-radius: 32px 32px 32px 8px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04), 0 2px 4px rgba(0,0,0,0.02);
+            margin-bottom: 2.8rem;
+        }
+        .intro-block p {
+            margin-bottom: 1.4rem;
+            font-size: 1.05rem;
+        }
+        .intro-block p:last-child {
+            margin-bottom: 0;
+        }
+        .accent-link {
+            color: #a6463a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border 0.2s, color 0.2s;
+        }
+        .accent-link:hover {
+            border-bottom: 1px solid #a6463a;
+            color: #7b332a;
+        }
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 450;
+            letter-spacing: 0.02em;
+            margin: 2.6rem 0 1.2rem;
+            padding-left: 0.6rem;
+            border-left: 5px solid #c9a76b;
+            color: #2a2a28;
+        }
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin: 1.8rem 0 2.2rem;
+        }
+        .card-item {
+            flex: 1 1 240px;
+            background: #faf9f6;
+            padding: 1.6rem 1.4rem;
+            border-radius: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            border: 1px solid #ece7e0;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+        }
+        .card-item h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #363634;
+            margin-bottom: 0.6rem;
+        }
+        .card-item p {
+            font-size: 0.95rem;
+            color: #4c4b47;
+            margin-bottom: 0.4rem;
+        }
+        .card-item .meta {
+            display: inline-block;
+            margin-top: 0.8rem;
+            font-size: 0.8rem;
+            background: #e5dfd6;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            color: #3a3834;
+        }
+        .faq-mini {
+            margin: 2rem 0 1.2rem;
+            background: #f2eee9;
+            padding: 1.8rem 2rem;
+            border-radius: 28px;
+        }
+        .faq-mini dt {
+            font-weight: 550;
+            font-size: 1.05rem;
+            margin-top: 1rem;
+            color: #2c2a27;
+        }
+        .faq-mini dt:first-of-type {
+            margin-top: 0;
+        }
+        .faq-mini dd {
+            margin-left: 0.4rem;
+            padding: 0.4rem 0 0.6rem;
+            color: #4b4944;
+            border-bottom: 1px dashed #dbd3c9;
+        }
+        .faq-mini dd:last-of-type {
+            border-bottom: 0;
+        }
+        .tail-note {
+            margin-top: 3rem;
+            padding: 1.6rem 0 0.8rem;
+            text-align: center;
+            border-top: 1px solid #d7d0c5;
+            font-size: 1rem;
+            color: #5a5650;
+        }
+        .tail-note a {
+            color: #a6463a;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .tail-note a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.4rem; }
+            .hero { padding: 3rem 1.2rem 2.5rem; }
+            .container { padding: 1.8rem 1rem; }
+            .intro-block { padding: 1.8rem 1.2rem; }
+            .card-grid { flex-direction: column; gap: 1.2rem; }
+            .faq-mini { padding: 1.2rem 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="hero">
+    <h1>ayx</h1>
+    <div class="sub">日常查询 · 对照索引 · 延伸参考 <span>专题笔记本</span></div>
+</header>
+
+<main class="container">
+
+    <div class="intro-block">
+        <p>在信息过载的年代，许多查询其实只是寻找一个可靠的中继点。无论是核对术语、对比数值，还是回溯某个概念的上下文，一个清晰且稳定的对照基点总能减少判断的损耗。<a href="https://surveys-ayx.com.cn" class="accent-link">ayx</a> 正是这样一种轻量的知识锚点——它不兜售答案，而是提供结构化的参照面，让查询本身变得更干脆。</p>
+        <p>如果你常常在多个页面之间来回比照，或需要频繁查阅某类标准化资料，那么一个专属于自己的查询入口就能节省大量“重新定位”的时间。这个站点的设计初衷，就是成为那种可以随时打开、不做过多修饰的参照面板。</p>
+    </div>
+
+    <h2 class="section-title">三种常见的使用场景</h2>
+
+    <div class="card-grid">
+        <div class="card-item">
+            <h3>日常快速查询</h3>
+            <p>记不住的单位、公式、编号对照——直接打开页面即可定位，无需二次跳转或登录。适合放在浏览器书签栏或手机主屏幕。</p>
+            <span class="meta">高频 · 低阻</span>
+        </div>
+        <div class="card-item">
+            <h3>材料对照与复核</h3>
+            <p>撰写报告、整理数据时，需要并排参考多组数值或条款。将 <a href="https://surveys-ayx.com.cn" class="accent-link">ayx</a> 作为一个稳定参照页，比来回切换标签页更聚焦。</p>
+            <span class="meta">并行 · 稳定</span>
+        </div>
+        <div class="card-item">
+            <h3>延伸阅读的起点</h3>
+            <p>当你在某个主题上遇到陌生术语，或想了解分类框架时，这个页面可以提供结构化的索引，帮你判断下一步该查阅哪些方向。</p>
+            <span class="meta">拓展 · 脉络</span>
+        </div>
+    </div>
+
+    <div class="intro-block" style="margin-top: 0.5rem;">
+        <p>这些场景有一个共同点：它们需要的是一个干净、少干扰的“参考界面”，而不是一个不断推送内容的门户。所以整个页面的信息密度和节奏都偏向克制——把空间留给真正需要对照的内容。</p>
+        <p>当然，每个人使用查询页面的习惯都不太一样。有人偏好分类折叠，有人希望所有条目一目了然。你可以根据自己的需要，把这个页面当作一个可以持续调整的基底。</p>
+    </div>
+
+    <h2 class="section-title">一些常见疑问</h2>
+
+    <dl class="faq-mini">
+        <dt>这个页面适合用来查什么？</dt>
+        <dd>主要适用于那些需要频繁对照的数据、分类或术语——比如编号映射、单位换算、版本对比、分类纲要等。它不提供长篇解释，更接近“查询台”的角色。</dd>
+        <dt>我可以自定义页面内容吗？</dt>
+        <dd>完全可以。这个页面的结构本身就是半成品：你可以替换卡片里的示例描述，增删对照条目，甚至调整配色和布局，让它更贴合你自己的查询习惯。</dd>
+        <dt>是否需要联网才能使用？</dt>
+        <dd>第一次加载后，大部分静态内容可以直接从缓存中读取。如果后续有数据更新，只需联网刷新即可。整体上对网络依赖度较低。</dd>
+        <dt>移动端体验如何？</dt>
+        <dd>当前页面已经做了基本的响应式适配，手机浏览器上可以正常显示卡片和文字。若需要更精细的触控交互，可以在此基础上继续优化。</dd>
+    </dl>
+
+    <div class="tail-note">
+        如果需要持续使用，建议将 <a href="https://surveys-ayx.com.cn">ayx</a> 加入书签。<br>
+        <span style="font-size: 0.9rem; color: #7a756d;">—— 一份保持简洁的查询对照页</span>
+    </div>
+
+</main>
+
+</body>
+</html>
